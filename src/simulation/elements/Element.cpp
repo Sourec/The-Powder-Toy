@@ -17,7 +17,7 @@ Element::Element():
 	Gravity(0.0f),
 	Diffusion(0.0f),
 	HotAir(0.0f * CFDS),
-	Falldown(0),
+	//Falldown(0),
 
 	Flammable(0),
 	Explosive(0),
@@ -64,7 +64,7 @@ std::vector<StructProperty> Element::GetProperties()
 	properties.push_back(StructProperty("Gravity",						StructProperty::Float,		offsetof(Element, Gravity)));
 	properties.push_back(StructProperty("Diffusion",					StructProperty::Float,		offsetof(Element, Diffusion)));
 	properties.push_back(StructProperty("HotAir",						StructProperty::Float,		offsetof(Element, HotAir)));
-	properties.push_back(StructProperty("Falldown",						StructProperty::Integer,	offsetof(Element, Falldown)));
+	//properties.push_back(StructProperty("Falldown",						StructProperty::Integer,	offsetof(Element, Falldown)));
 	properties.push_back(StructProperty("Flammable",					StructProperty::Integer,	offsetof(Element, Flammable)));
 	properties.push_back(StructProperty("Explosive",					StructProperty::Integer,	offsetof(Element, Explosive)));
 	properties.push_back(StructProperty("Meltable",						StructProperty::Integer,	offsetof(Element, Meltable)));

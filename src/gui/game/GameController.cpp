@@ -894,7 +894,7 @@ void GameController::Update()
 		if (activeTool->GetIdentifier().find("DEFAULT_PT_") != activeTool->GetIdentifier().npos)
 		{
 			int sr = activeTool->GetToolID();
-			if ((sr>0 && sr<PT_NUM && sim->elements[sr].Enabled && sim->elements[sr].Falldown>0) || sr==SPC_AIR || sr == PT_NEUT || sr == PT_PHOT || sr == PT_LIGH)
+			if ((sr>0 && sr<PT_NUM && sim->elements[sr].Enabled && sim->elements[sr].State>0) || sr==SPC_AIR || sr == PT_NEUT || sr == PT_PHOT || sr == PT_LIGH)
 				rightSelected = sr;
 		}
 

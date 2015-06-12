@@ -258,8 +258,8 @@ int luacon_element_getproperty(const char * key, int * format, unsigned int * mo
 		offset = offsetof(Element, HotAir);
 		*format = 1;
 	}
-	else if (!strcmp(key, "falldown")) {
-		offset = offsetof(Element, Falldown);
+	else if (!strcmp(key, "state")) {
+		offset = offsetof(Element, State);
 		*format = 0;
 	}
 	else if (!strcmp(key, "flammable")) {

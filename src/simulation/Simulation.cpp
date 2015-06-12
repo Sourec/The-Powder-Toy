@@ -674,7 +674,7 @@ int Simulation::flood_water(int x, int y, int i, int originaly, int check)
 
 	while (x1>=CELL)
 	{
-		if ((elements[(pmap[y][x1-1]&0xFF)].Falldown)!=2)
+		if ((elements[(pmap[y][x1-1]&0xFF)].State)!=ST_LIQUID)
 		{
 			break;
 		}
@@ -682,7 +682,7 @@ int Simulation::flood_water(int x, int y, int i, int originaly, int check)
 	}
 	while (x2<XRES-CELL)
 	{
-		if ((elements[(pmap[y][x2+1]&0xFF)].Falldown)!=2)
+		if ((elements[(pmap[y][x2+1]&0xFF)].State)!=ST_LIQUID)
 		{
 			break;
 		}
@@ -712,12 +712,12 @@ int Simulation::flood_water(int x, int y, int i, int originaly, int check)
 
 	if (y>=CELL+1)
 		for (x=x1; x<=x2; x++)
-			if ((elements[(pmap[y-1][x]&0xFF)].Falldown)==2 && (parts[pmap[y-1][x]>>8].flags & FLAG_WATEREQUAL) == check)
+			if ((elements[(pmap[y-1][x]&0xFF)].State)==ST_LIQUID && (parts[pmap[y-1][x]>>8].flags & FLAG_WATEREQUAL) == check)
 				if (!flood_water(x, y-1, i, originaly, check))
 					return 0;
 	if (y<YRES-CELL-1)
 		for (x=x1; x<=x2; x++)
-			if ((elements[(pmap[y+1][x]&0xFF)].Falldown)==2 && (parts[pmap[y+1][x]>>8].flags & FLAG_WATEREQUAL) == check)
+			if ((elements[(pmap[y+1][x]&0xFF)].State)==ST_LIQUID && (parts[pmap[y+1][x]>>8].flags & FLAG_WATEREQUAL) == check)
 				if (!flood_water(x, y+1, i, originaly, check))
 					return 0;
 	return 1;
@@ -1857,9 +1857,9 @@ bool Simulation::IsWallBlocking(int x, int y, int type)
 			return true;
 		else if (wall == WL_ALLOWENERGY && !(elements[type].Properties&TYPE_ENERGY))
 			return true;
-		else if (wall == WL_ALLOWLIQUID && elements[type].Falldown!=2)
+		else if (wall == WL_ALLOWLIQUID && elements[type].State!=ST_LIQUID)
 			return true;
-		else if (wall == WL_ALLOWSOLID && elements[type].Falldown!=1)
+		else if (wall == WL_ALLOWSOLID && elements[type].State!=ST_SOLID)
 			return true;
 		else if (wall == WL_ALLOWAIR || wall == WL_WALL || wall == WL_WALLELEC)
 			return true;
@@ -2063,9 +2063,9 @@ int Simulation::eval_move(int pt, int nx, int ny, unsigned *rr)
 			return 0;
 		if (bmap[ny/CELL][nx/CELL]==WL_ALLOWENERGY && !(elements[pt].Properties&TYPE_ENERGY))// && elements[pt].Falldown!=0 && pt!=PT_FIRE && pt!=PT_SMKE)
 			return 0;
-		if (bmap[ny/CELL][nx/CELL]==WL_ALLOWLIQUID && elements[pt].Falldown!=2)
+		if (bmap[ny/CELL][nx/CELL]==WL_ALLOWLIQUID && elements[pt].State!=ST_LIQUID)
 			return 0;
-		if (bmap[ny/CELL][nx/CELL]==WL_ALLOWSOLID && elements[pt].Falldown!=1)
+		if (bmap[ny/CELL][nx/CELL]==WL_ALLOWSOLID && elements[pt].State!=ST_SOLID)
 			return 0;
 		if (bmap[ny/CELL][nx/CELL]==WL_ALLOWAIR || bmap[ny/CELL][nx/CELL]==WL_WALL || bmap[ny/CELL][nx/CELL]==WL_WALLELEC)
 			return 0;
@@ -3294,8 +3294,8 @@ void Simulation::UpdateParticles(int start, int end)
 			          bmap[y/CELL][x/CELL]==WL_WALLELEC ||
 			          bmap[y/CELL][x/CELL]==WL_ALLOWAIR ||
 			          (bmap[y/CELL][x/CELL]==WL_DESTROYALL) ||
-			          (bmap[y/CELL][x/CELL]==WL_ALLOWLIQUID && elements[t].Falldown!=2) ||
-			          (bmap[y/CELL][x/CELL]==WL_ALLOWSOLID && elements[t].Falldown!=1) ||
+			          (bmap[y/CELL][x/CELL]==WL_ALLOWLIQUID && elements[t].State!=ST_LIQUID) ||
+			          (bmap[y/CELL][x/CELL]==WL_ALLOWSOLID && elements[t].State!=ST_SOLID) ||
 			          (bmap[y/CELL][x/CELL]==WL_ALLOWGAS && !(elements[t].Properties&TYPE_GAS)) || //&& elements[t].Falldown!=0 && parts[i].type!=PT_FIRE && parts[i].type!=PT_SMKE && parts[i].type!=PT_CFLM) ||
 			          (bmap[y/CELL][x/CELL]==WL_ALLOWENERGY && !(elements[t].Properties&TYPE_ENERGY)) ||
 					  (bmap[y/CELL][x/CELL]==WL_DETECT && (t==PT_METL || t==PT_SPRK)) ||
@@ -4175,7 +4175,7 @@ killed:
 					}
 				}
 			}
-			else if (elements[t].Falldown==0)
+			else if (elements[t].State==ST_SOLID || elements[t].State==ST_GAS)
 			{
 				// gasses and solids (but not powders)
 				if (!do_move(i, x, y, fin_xf, fin_yf))
@@ -4206,7 +4206,7 @@ killed:
 			}
 			else
 			{
-				if (water_equal_test && elements[t].Falldown == 2 && 1>= rand()%400)//checking stagnant is cool, but then it doesn't update when you change it later.
+				if (water_equal_test && elements[t].State == ST_LIQUID && 1>= rand()%400)//checking stagnant is cool, but then it doesn't update when you change it later.
 				{
 					if (!flood_water(x,y,i,y, parts[i].flags&FLAG_WATEREQUAL))
 						goto movedone;
@@ -4259,7 +4259,7 @@ killed:
 								goto movedone;
 							}
 						}
-						if (elements[t].Falldown>1 && !grav->ngrav_enable && gravityMode==0 && parts[i].vy>fabsf(parts[i].vx))
+						if (elements[t].State>1 && !grav->ngrav_enable && gravityMode==0 && parts[i].vy>fabsf(parts[i].vx))
 						{
 							s = 0;
 							// stagnant is true if FLAG_STAGNANT was set for this particle in previous frame
@@ -4308,7 +4308,7 @@ killed:
 							parts[i].vx *= elements[t].Collision;
 							parts[i].vy *= elements[t].Collision;
 						}
-						else if (elements[t].Falldown>1 && fabsf(pGravX*parts[i].vx+pGravY*parts[i].vy)>fabsf(pGravY*parts[i].vx-pGravX*parts[i].vy))
+						else if (elements[t].State>1 && fabsf(pGravX*parts[i].vx+pGravY*parts[i].vy)>fabsf(pGravY*parts[i].vx-pGravX*parts[i].vy))
 						{
 							float nxf, nyf, prev_pGravX, prev_pGravY, ptGrav = elements[t].Gravity;
 							s = 0;

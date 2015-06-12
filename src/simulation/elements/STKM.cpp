@@ -79,7 +79,7 @@ int Element_STKM::run_stickman(playerst* playerp, UPDATE_FUNC_ARGS) {
 	float rocketBootsHeadEffectV = 0.3f;// stronger acceleration vertically, to counteract gravity
 	float rocketBootsFeetEffectV = 0.45f;
 
-	if ((parts[i].ctype>0 && parts[i].ctype<PT_NUM && sim->elements[parts[i].ctype].Enabled && sim->elements[parts[i].ctype].Falldown>0) || parts[i].ctype==SPC_AIR || parts[i].ctype == PT_NEUT || parts[i].ctype == PT_PHOT || parts[i].ctype == PT_LIGH)
+	if ((parts[i].ctype>0 && parts[i].ctype<PT_NUM && sim->elements[parts[i].ctype].Enabled && sim->elements[parts[i].ctype].State>0) || parts[i].ctype==SPC_AIR || parts[i].ctype == PT_NEUT || parts[i].ctype == PT_PHOT || parts[i].ctype == PT_LIGH)
 		playerp->elem = parts[i].ctype;
 	playerp->frames++;
 
@@ -366,7 +366,7 @@ int Element_STKM::run_stickman(playerst* playerp, UPDATE_FUNC_ARGS) {
 				if (!r && !sim->bmap[(y+ry)/CELL][(x+rx)/CELL])
 					continue;
 				
-				if (sim->elements[r&0xFF].Falldown!=0 || sim->elements[r&0xFF].State == ST_GAS
+				if (sim->elements[r&0xFF].State!=0 || sim->elements[r&0xFF].State == ST_GAS
 					|| sim->elements[r&0xFF].Properties&TYPE_GAS
 					|| sim->elements[r&0xFF].Properties&TYPE_LIQUID
 					|| (r&0xFF) == PT_NEUT || (r&0xFF) == PT_PHOT)

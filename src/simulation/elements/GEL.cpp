@@ -128,7 +128,7 @@ int Element_GEL::update(UPDATE_FUNC_ARGS)
 				dy = parts[i].y - parts[r>>8].y;
 
 				//Stickiness
-				if ((dx*dx + dy*dy)>1.5 && (gel || !sim->elements[rt].Falldown || (fabs((float)rx)<2 && fabs((float)ry)<2)))
+				if ((dx*dx + dy*dy)>1.5 && (gel || sim->elements[rt].State == ST_SOLID || (fabs((float)rx)<2 && fabs((float)ry)<2)))
 				{
 					float per, nd;
 					nd = dx*dx + dy*dy - 0.5;
