@@ -17,7 +17,7 @@ Element_OIL::Element_OIL()
 	Gravity = 0.1f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 20;
 	Explosive = 0;

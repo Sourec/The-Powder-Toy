@@ -17,7 +17,7 @@ Element_ACID::Element_ACID()
 	Gravity = 0.1f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 40;
 	Explosive = 0;

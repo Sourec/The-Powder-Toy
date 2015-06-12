@@ -17,7 +17,7 @@ Element_AMTR::Element_AMTR()
 	Gravity = 0.10f;
 	Diffusion = 1.00f;
 	HotAir = 0.0000f * CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

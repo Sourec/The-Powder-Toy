@@ -17,7 +17,7 @@ Element_BVBR::Element_BVBR()
 	Gravity = 0.15f;
 	Diffusion = 0.00f;
 	HotAir = 0.0000f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

@@ -17,7 +17,7 @@ Element_MWAX::Element_MWAX()
 	Gravity = 0.15f;
 	Diffusion = 0.00f;
 	HotAir = 0.000001f* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 5;
 	Explosive = 0;

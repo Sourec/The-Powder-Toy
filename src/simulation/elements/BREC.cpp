@@ -17,7 +17,7 @@ Element_BREC::Element_BREC()
 	Gravity = 0.18f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

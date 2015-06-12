@@ -17,7 +17,7 @@ Element_EXOT::Element_EXOT()
 	Gravity = 0.15f;
 	Diffusion = 0.00f;
 	HotAir = 0.0003f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 0;
 	Explosive = 0;

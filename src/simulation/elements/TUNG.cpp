@@ -18,7 +18,7 @@ Element_TUNG::Element_TUNG()
 	Gravity = 0.0f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 
 	Flammable = 0;
 	Explosive = 0;

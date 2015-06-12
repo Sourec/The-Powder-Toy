@@ -17,7 +17,7 @@ Element_SNOW::Element_SNOW()
 	Gravity = 0.05f;
 	Diffusion = 0.01f;
 	HotAir = -0.00005f* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

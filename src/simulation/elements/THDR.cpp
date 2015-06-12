@@ -17,7 +17,7 @@ Element_THDR::Element_THDR()
 	Gravity = 0.6f;
 	Diffusion = 0.62f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

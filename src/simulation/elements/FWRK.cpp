@@ -17,7 +17,7 @@ Element_FWRK::Element_FWRK()
 	Gravity = 0.4f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

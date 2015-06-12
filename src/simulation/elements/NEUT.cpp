@@ -17,7 +17,7 @@ Element_NEUT::Element_NEUT()
 	Gravity = 0.0f;
 	Diffusion = 0.01f;
 	HotAir = 0.002f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

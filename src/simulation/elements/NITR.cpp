@@ -17,7 +17,7 @@ Element_NITR::Element_NITR()
 	Gravity = 0.2f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 1000;
 	Explosive = 2;

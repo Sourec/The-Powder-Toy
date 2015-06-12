@@ -17,7 +17,7 @@ Element_VRSG::Element_VRSG()
 	Gravity = 0.0f;
 	Diffusion = 0.75f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 500;
 	Explosive = 0;

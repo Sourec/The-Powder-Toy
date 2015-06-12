@@ -17,7 +17,7 @@ Element_DESL::Element_DESL()
 	Gravity = 0.1f;
 	Diffusion = 0.0f;
 	HotAir = 0.0f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 2;
 	Explosive = 0;

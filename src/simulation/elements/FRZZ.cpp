@@ -17,7 +17,7 @@ Element_FRZZ::Element_FRZZ()
 	Gravity = 0.05f;
 	Diffusion = 0.01f;
 	HotAir = -0.00005f* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

@@ -17,7 +17,7 @@ Element_NICE::Element_NICE()
 	Gravity = 0.0f;
 	Diffusion = 0.00f;
 	HotAir = -0.0005f* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

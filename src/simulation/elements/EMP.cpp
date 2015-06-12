@@ -17,7 +17,7 @@ Element_EMP::Element_EMP()
 	Gravity = 0.0f;
 	Diffusion = 0.0f;
 	HotAir = 0.0f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

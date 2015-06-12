@@ -17,7 +17,7 @@ Element_BGLA::Element_BGLA()
 	Gravity = 0.3f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

@@ -17,7 +17,7 @@ Element_GUNP::Element_GUNP()
 	Gravity = 0.1f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 600;
 	Explosive = 1;

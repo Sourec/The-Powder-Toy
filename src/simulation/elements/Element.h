@@ -27,7 +27,7 @@ public:
 	float Gravity;
 	float Diffusion;
 	float HotAir;
-	int Falldown;
+	//int Falldown;
 	int Flammable;
 	int Explosive;
 	int Meltable;

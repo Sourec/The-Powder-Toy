@@ -17,7 +17,7 @@ Element_RBDM::Element_RBDM()
 	Gravity = 0.0f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 1000;
 	Explosive = 1;

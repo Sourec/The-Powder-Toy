@@ -22,7 +22,7 @@ Element_CFLM::Element_CFLM()
 	Gravity = -0.1f;
 	Diffusion = 0.00f;
 	HotAir = 0.0005f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

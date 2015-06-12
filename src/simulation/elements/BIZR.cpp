@@ -17,7 +17,7 @@ Element_BIZR::Element_BIZR()
 	Gravity = 0.1f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 0;
 	Explosive = 0;

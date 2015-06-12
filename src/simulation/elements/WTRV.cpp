@@ -17,7 +17,7 @@ Element_WTRV::Element_WTRV()
 	Gravity = -0.1f;
 	Diffusion = 0.75f;
 	HotAir = 0.0003f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

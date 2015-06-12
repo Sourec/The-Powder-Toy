@@ -17,7 +17,7 @@ Element_PLSM::Element_PLSM()
 	Gravity = -0.1f;
 	Diffusion = 0.30f;
 	HotAir = 0.001f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

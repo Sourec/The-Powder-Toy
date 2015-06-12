@@ -17,7 +17,7 @@ Element_SING::Element_SING()
 	Gravity = 0.12f;
 	Diffusion = 0.00f;
 	HotAir = -0.001f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

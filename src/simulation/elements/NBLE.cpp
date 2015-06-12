@@ -17,7 +17,7 @@ Element_NBLE::Element_NBLE()
 	Gravity = 0.0f;
 	Diffusion = 0.75f;
 	HotAir = 0.001f	* CFDS;
-	Falldown = 0;
+	//Falldown = 0;
 	
 	Flammable = 0;
 	Explosive = 0;

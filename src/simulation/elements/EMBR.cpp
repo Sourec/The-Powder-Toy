@@ -17,7 +17,7 @@ Element_EMBR::Element_EMBR()
 	Gravity = 0.07f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 1;
+	//Falldown = 1;
 	
 	Flammable = 0;
 	Explosive = 0;

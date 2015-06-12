@@ -17,7 +17,7 @@ Element_MERC::Element_MERC()
 	Gravity = 0.3f;
 	Diffusion = 0.00f;
 	HotAir = 0.000f	* CFDS;
-	Falldown = 2;
+	//Falldown = 2;
 	
 	Flammable = 0;
 	Explosive = 0;
