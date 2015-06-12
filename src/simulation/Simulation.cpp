@@ -4175,7 +4175,7 @@ killed:
 					}
 				}
 			}
-			else if (elements[t].State==ST_SOLID || elements[t].State==ST_GAS)
+			else if (elements[t].State==ST_NONE || elements[t].State==ST_GAS)
 			{
 				// gasses and solids (but not powders)
 				if (!do_move(i, x, y, fin_xf, fin_yf))
